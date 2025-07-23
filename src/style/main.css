@@ -1,0 +1,163 @@
+@import "./_reset.css";
+@import "./_mvp.css";
+
+/* overwrite mvp */
+body {
+  padding: 1rem;
+}
+
+footer,
+header,
+main {
+  padding: 1rem 0;
+}
+
+nav {
+  margin: 0;
+}
+
+blockquote {
+  border-left: solid 0.5rem var(--color-accent);
+  font-size: inherit;
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+}
+
+hr {
+  border-top: 3px dotted var(--color-text);
+  margin: 2rem 0;
+}
+
+/* add to mvp */
+header h1 {
+  font-size: 2rem;
+}
+
+article {
+  ol li {
+    list-style: decimal inside;
+  }
+  ul li {
+    list-style: square inside;
+  }
+}
+
+:root {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--color-accent);
+  --pagefind-ui-text: var(--color-text);
+  --pagefind-ui-background: var(--color-bg);
+  --pagefind-ui-border: var(--color-bg-secondary);
+  --pagefind-ui-tag: var(--color-link);
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: var(--border-radius);
+  --pagefind-ui-image-border-radius: var(--border-radius);
+  --pagefind-ui-image-box-ratio: 3 / 2;
+
+  --color-bg: #ffffffaa;
+  --font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+  --justify-important: jusitify;
+  --justify-normal: start;
+  --width-card: 400px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[color-mode="user"] {
+    --color-bg: #333333aa;
+  }
+}
+
+html {
+  background-image: url("/assets/waterloo.svg");
+  background-size: 20%;
+}
+
+body {
+  margin: 0 auto;
+  max-width: var(--width-content);
+}
+
+#doki {
+  border: 3px;
+  border-radius: 3rem;
+  border-style: dotted dashed solid;
+  cursor: pointer;
+  margin: auto;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+svg.icon {
+  fill: currentColor;
+  height: 1em;
+  vertical-align: text-bottom;
+  width: 1em;
+}
+
+.tag {
+  font-size: 0.7rem;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: 0.2rem;
+}
+
+.post .h {
+  margin-top: 2rem;
+
+  a {
+    visibility: hidden;
+  }
+
+  &:hover a {
+    visibility: visible;
+  }
+}
+
+@media (hover: none) {
+  .post .h a {
+    visibility: visible;
+  }
+}
+
+a.og-card {
+  background-color: var(--color-bg);
+  border-radius: var(--pagefind-ui-border-radius);
+  border-color: var(--pagefind-ui-border);
+  border-width: var(--pagefind-ui-border-width);
+  border-style: solid;
+  box-sizing: content-box;
+  color: inherit;
+  display: flex;
+  font-weight: inherit;
+  height: min(8rem, 100vw / 3);
+  overflow: hidden;
+  text-decoration: inherit;
+
+  >div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1rem;
+    overflow-y: scroll;
+
+    >* {
+      margin-block: auto;
+    }
+  }
+
+  .og-title {
+    font-weight: bold;
+  }
+}
+
+.embed {
+  iframe {
+    height: 50vmin;
+    width: 100%;
+  }
+}

@@ -1,0 +1,30 @@
+---
+layout: layout.vto
+---
+<header>
+  <nav><ul>
+    {{ for item of nav.breadcrumb() }}
+    <li>
+      {{ if item.data }}
+        <a href="{{ item.data.url }}">
+          {{ item.data.title }}
+        </a>
+      {{ else }}
+        <span>{{ item.slug }}</span>
+      {{ /if }}
+    </li>
+    {{ /for }}
+  </ul></nav>
+</header>
+<main>
+  <article class="post">
+    <header>
+      <h1>{{ title }}</h1>
+      {{ comp.fuzzyDate({date, fineness: fuzzy_date}) }}
+      {{ for tag of tags }}
+        <span class="tag" href="/tags/{{ tag }}">{{ tag }}</span>
+      {{ /for }}
+    </header>
+    {{ content }}
+  </article>
+</main>

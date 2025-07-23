@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: kuboon/lume-blog
+  branch: main
+
+locale: 'ja'
+media_folder: assets/
+
+collections:
+  - label: Blog
+    name: blog
+    description: List of blog posts
+    folder: blog
+    nested:
+      depth: 2
+      summary: '{{title}}'
+    extension: md
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Content
+        name: body
+        widget: markdown
