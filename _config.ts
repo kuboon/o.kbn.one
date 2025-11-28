@@ -63,6 +63,6 @@ site.use(sitemap({
   query: "noindex!=true",
 }));
 site.use(vento());
-site.add([".css", ".ts", ".svg", ".jpeg"]);
+site.add([".css", ".ts", ".svg", ".jpeg", ".png"]);
 
 export default site;

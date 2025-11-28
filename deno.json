@@ -6,7 +6,7 @@
     },
     "build": {
       "description": "Build the site for production",
-      "command": "deno run -P=lume --allow-write=.,$(deno info --json | jq .denoDir) lume/cli.ts"
+      "command": "deno run -P=lume --allow-write=.,$HOME/.cache lume/cli.ts"
     },
     "serve": {
       "description": "Run and serve the site for development",

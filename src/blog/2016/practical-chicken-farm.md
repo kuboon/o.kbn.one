@@ -6,7 +6,7 @@ tags:
   - game
 date: 2016-07-25
 ---
-![niwatori](media/niwatori.png)
+<img src="media/niwatori.png" alt="マイクラで作ったニワトリ孵化装置" transform-images="webp" />
 
 先月くらいから、遅ればせながら minecraft を始めた。大変面白い。
 最初は攻略情報を可能な限り避けて自力で解いていくのが私のゲームの楽しみ方なのだが、 minecraft はある程度情報を調べながら進めるのが前提となっている。例えば、鎧や盾のような基本的なアイテムの入手方法が最初は全くわからない。公式wiki 等でレシピを見ずにこれを入手するのは非現実的な試行錯誤が必要となる。
