@@ -13,24 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Deno environment
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: v2.x
+        uses: denoland/setup-deno@v2
+      - run: deno info --json | jq .denoDir
       - name: lume build
         run: deno task build --location=https://o.kbn.one
       - name: Upload static files as artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site/
 
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
