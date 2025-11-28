@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-:where([hidden]:not([hidden='until-found'])) {
+:where([hidden]:not([hidden="until-found"])) {
   display: none !important;
 }
 
@@ -48,7 +48,7 @@
   resize: block;
 }
 
-:where(button, label, select, summary, [role='button'], [role='option']) {
+:where(button, label, select, summary, [role="button"], [role="option"]) {
   cursor: pointer;
 }
 

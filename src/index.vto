@@ -7,33 +7,38 @@ noindex: true
 ---
 <search id="search"></search>
 <header>
-<div id="profile" data-pagefind-ignore="all">
-  <h1>Ohkubo Kohei / kuboon</h1>
-  <div>
-    {{ for prof of profiles }}
-      <a href="{{ prof.url }}" target="_blank" rel="noopener noreferrer">{{ prof.name }}</a>
-    {{ /for }}
+  <div id="profile" data-pagefind-ignore="all">
+    <h1>Ohkubo Kohei / kuboon</h1>
+    <div>
+      {{ for prof of profiles }}
+        <a href="{{ prof.url }}" target="_blank" rel="noopener noreferrer">{{
+          prof.name
+        }}</a>
+      {{ /for }}
+    </div>
   </div>
-</div>
 </header>
 <div id="doki" style="float: right"></div>
 <main data-pagefind-ignore="all">
-<ul id="timeline">
-{{ for yearEntries of await comp.searchBlog() }}
-  {{> const [year, entries] = yearEntries }}
-  <div class="year">
-    <h1>{{year}}</h1>
-    {{ for entry of entries }}
-      {{> const draftIcon = entry.draft && '<img src="/assets/draft.svg" />' }}
-      <li data-level="{{entry.level}}" data-tags="{{entry.tags}}">
-        <a href="{{entry.url}}">{{draftIcon}}{{entry.title}}</a>
-        {{ for tag of entry.tags }}
-          <a class="tag" href="#tag={{tag}}">{{tag}}</a>
+  <ul id="timeline">
+    {{ for yearEntries of await comp.searchBlog() }}
+      {{> const [year, entries] = yearEntries }}
+      <div class="year">
+        <h1>{{ year }}</h1>
+        {{ for entry of entries }}
+          {{>
+            const draftIcon = entry.draft &&
+            '<img src="/assets/draft.svg" />'
+          }}
+          <li data-level="{{entry.level}}" data-tags="{{entry.tags}}">
+            <a href="{{entry.url}}">{{ draftIcon }}{{ entry.title }}</a>
+            {{ for tag of entry.tags }}
+              <a class="tag" href="#tag={{tag}}">{{ tag }}</a>
+            {{ /for }}
+          </li>
         {{ /for }}
-      </li>
+      </div>
     {{ /for }}
-  </div>
-{{ /for }}
-</ul>
+  </ul>
 </main>
 <script type="module" src="/index.js"></script>

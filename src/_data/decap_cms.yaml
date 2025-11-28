@@ -3,7 +3,7 @@ backend:
   repo: kuboon/lume-blog
   branch: main
 
-locale: 'ja'
+locale: "ja"
 media_folder: assets/
 
 collections:
@@ -13,7 +13,7 @@ collections:
     folder: blog
     nested:
       depth: 2
-      summary: '{{title}}'
+      summary: "{{title}}"
     extension: md
     create: true
     fields:

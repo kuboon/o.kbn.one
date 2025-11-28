@@ -14,7 +14,9 @@
   --color-table: #118bee;
   --color-text: #000;
   --color-text-secondary: #999;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
   --hover-brightness: 1.2;
   --justify-important: center;
   --justify-normal: left;
@@ -27,16 +29,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root[color-mode="user"] {
-      --color-accent: #0097fc4f;
-      --color-bg: #333;
-      --color-bg-secondary: #555;
-      --color-link: #0097fc;
-      --color-secondary: #e20de9;
-      --color-secondary-accent: #e20de94f;
-      --color-shadow: #bbbbbb20;
-      --color-table: #0097fc;
-      --color-text: #f7f7f7;
-      --color-text-secondary: #aaa;
+    --color-accent: #0097fc4f;
+    --color-bg: #333;
+    --color-bg-secondary: #555;
+    --color-link: #0097fc;
+    --color-secondary: #e20de9;
+    --color-secondary-accent: #e20de94f;
+    --color-shadow: #bbbbbb20;
+    --color-table: #0097fc;
+    --color-text: #f7f7f7;
+    --color-text-secondary: #aaa;
   }
 }
 
@@ -46,7 +48,7 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   html {
-      scroll-behavior: auto;
+    scroll-behavior: auto;
   }
 }
 
@@ -177,7 +179,7 @@ nav ul li ul {
   display: none;
   height: auto;
   left: -2px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   top: 1.7rem;
   white-space: nowrap;
@@ -402,8 +404,8 @@ input[type="radio"] {
   display: inline-block;
 }
 
-input[type="checkbox"]+label,
-input[type="radio"]+label {
+input[type="checkbox"] + label,
+input[type="radio"] + label {
   display: inline-block;
   font-weight: normal;
   position: relative;

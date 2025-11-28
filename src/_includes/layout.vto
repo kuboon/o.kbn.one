@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="ja" color-mode="user">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }} | kuboon blog</title>
-  <link rel="stylesheet" href="/style/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }} | kuboon blog</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CYGW8D5TM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push('js', new Date(), 'config', 'G-2CYGW8D5TM');
-  </script>
-  <link rel="alternate" type="application/feed+json" title="o.kbn.one jsonfeed" href="{{ 'feed.json' |> url(true) }}" />
-  <link rel="alternate" type="application/rss+xml" title="o.kbn.one rss" href="{{ 'feed.rss' |> url(true) }}">
-</head>
-<body>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true" focusable="false">
-    <symbol id="octicon-link" viewBox="0 0 24 24">
-      <path d="M14.78 3.653a3.936 3.936 0 1 1 5.567 5.567l-3.627 3.627a3.936 3.936 0 0 1-5.88-.353.75.75 0 0 0-1.18.928 5.436 5.436 0 0 0 8.12.486l3.628-3.628a5.436 5.436 0 1 0-7.688-7.688l-3 3a.75.75 0 0 0 1.06 1.061l3-3Z"></path><path d="M7.28 11.153a3.936 3.936 0 0 1 5.88.353.75.75 0 0 0 1.18-.928 5.436 5.436 0 0 0-8.12-.486L2.592 13.72a5.436 5.436 0 1 0 7.688 7.688l3-3a.75.75 0 1 0-1.06-1.06l-3 3a3.936 3.936 0 0 1-5.567-5.568l3.627-3.627Z"></path>
-    </symbol>
-  </svg>
-  {{ content }}
-</body>
-<script type="module">
-  const elm = document.getElementById("doki")
-  if(elm) {
-    const { Doki } = await import("https://kuboon.github.io/doki/doki.js")
-    function update() {
-      elm.textContent = new Doki(new Date).fmt("short") + Doki.Symbol
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2CYGW8D5TM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push("js", new Date(), "config", "G-2CYGW8D5TM");
+    </script>
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      title="o.kbn.one jsonfeed"
+      href="{{ 'feed.json' |> url(true) }}"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="o.kbn.one rss"
+      href="{{ 'feed.rss' |> url(true) }}"
+    >
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="display: none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="octicon-link" viewBox="0 0 24 24">
+        <path
+          d="M14.78 3.653a3.936 3.936 0 1 1 5.567 5.567l-3.627 3.627a3.936 3.936 0 0 1-5.88-.353.75.75 0 0 0-1.18.928 5.436 5.436 0 0 0 8.12.486l3.628-3.628a5.436 5.436 0 1 0-7.688-7.688l-3 3a.75.75 0 0 0 1.06 1.061l3-3Z"
+        >
+        </path>
+        <path
+          d="M7.28 11.153a3.936 3.936 0 0 1 5.88.353.75.75 0 0 0 1.18-.928 5.436 5.436 0 0 0-8.12-.486L2.592 13.72a5.436 5.436 0 1 0 7.688 7.688l3-3a.75.75 0 1 0-1.06-1.06l-3 3a3.936 3.936 0 0 1-5.567-5.568l3.627-3.627Z"
+        >
+        </path>
+      </symbol>
+    </svg>
+    {{ content }}
+  </body>
+  <script type="module">
+    const elm = document.getElementById("doki");
+    if (elm) {
+      const { Doki } = await import(
+        "https://kuboon.github.io/doki/doki.js"
+      );
+      function update() {
+        elm.textContent = new Doki(new Date()).fmt("short") + Doki.Symbol;
+      }
+      update();
+      setInterval(update, 1000);
+      elm.addEventListener("click", () => {
+        location.href = "https://kuboon.github.io/doki/";
+      });
     }
-    update(); setInterval(update, 1000)
-    elm.addEventListener("click", () => {
-      location.href = "https://kuboon.github.io/doki/"
-    })
-  }
-</script>
+  </script>
 </html>

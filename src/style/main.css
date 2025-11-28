@@ -55,12 +55,9 @@ article {
   --pagefind-ui-image-box-ratio: 3 / 2;
 
   --color-bg: #ffffffaa;
-  --font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
+  --font-family:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    Meiryo, sans-serif;
   --justify-important: jusitify;
   --justify-normal: start;
   --width-card: 400px;
@@ -138,14 +135,14 @@ a.og-card {
   overflow: hidden;
   text-decoration: inherit;
 
-  >div {
+  > div {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin: 1rem;
     overflow-y: scroll;
 
-    >* {
+    > * {
       margin-block: auto;
     }
   }
