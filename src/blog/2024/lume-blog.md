@@ -14,7 +14,7 @@ tags:
 その後も SSG の動向を追っていたのだが、ついに Deno 上で動く lume に出会った。
 
 <a class="og-card" href="https://lume.land">
-  <img src="https://lume.land/avatar.jpg">
+  <img src="https://lume.land/index.png">
   <div>
     <div>https://lume.land/</div>
     <div class="og-title">Lume, the static site generator for Deno</div>
