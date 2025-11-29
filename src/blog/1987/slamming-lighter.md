@@ -1,6 +1,6 @@
 ---
 title: 百円ライター
-date: 1987-04-30T03:00:00.000Z
+date: 1987-04-30
 fuzzy_date: year
 tags: ["回想"]
 ---
