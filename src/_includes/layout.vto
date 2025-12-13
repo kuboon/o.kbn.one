@@ -48,6 +48,20 @@
     {{ content }}
   </body>
   <script type="module">
+    import { OtlpExporter } from "https://bunseki.kbn.one/exporter.browser.js";
+    const otlp = new OtlpExporter({ serviceName: "o.kbn.one" });
+    let span = otlp.onPageLoad();
+    globalThis.addEventListener("error", (ev) => {
+      span.postError(ev.error);
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        span.post();
+      } else {
+        span = span.trace.newSpan({name:"page-visible"});
+      }
+    });
+
     const elm = document.getElementById("doki");
     if (elm) {
       const { Doki } = await import(
