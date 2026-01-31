@@ -17,10 +17,6 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "installDirectlyFromGitHubRelease": true,
-      "version": "latest"
-    },
     "ghcr.io/devcontainers-community/features/deno:1": {
       "version": "latest"
     }

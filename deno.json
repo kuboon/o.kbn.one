@@ -2,11 +2,11 @@
   "tasks": {
     "lume": {
       "description": "Run Lume command",
-      "command": "deno run -P=lume lume/cli.ts"
+      "command": "deno run -P=lume --allow-read=.,$HOME/.cache/deno lume/cli.ts"
     },
     "build": {
       "description": "Build the site for production",
-      "command": "deno run -P=lume --allow-write=.,$HOME/.cache lume/cli.ts"
+      "command": "deno run -P=lume --allow-read=.,$HOME/.cache/deno lume/cli.ts"
     },
     "serve": {
       "description": "Run and serve the site for development",
@@ -14,8 +14,8 @@
     }
   },
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.2/",
-    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.12/jsx-runtime.ts"
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.4/",
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.14/jsx-runtime.ts"
   },
   "compilerOptions": {
     "types": [
@@ -30,7 +30,7 @@
   ],
   "lint": {
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.2/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.1.4/lint.ts"
     ],
     "rules": {
       "exclude": [
@@ -39,14 +39,16 @@
     }
   },
   "fmt": {
-    "exclude": ["src/blog"]
+    "exclude": [
+      "src/blog"
+    ]
   },
   "permissions": {
     "lume": {
-      "read": true,
-      "write": [
-        "./"
-      ],
+      "read": {
+        "ignore": true
+      },
+      "write": ["./_site", "./_cache"],
       "import": [
         "cdn.jsdelivr.net:443",
         "jsr.io:443",
