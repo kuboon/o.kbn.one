@@ -1,0 +1,280 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="ja" color-mode="user">
+  <head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          Ubuntu, Cantarell, sans-serif;
+        padding: 20px;
+      }
+
+      .image-container {
+        max-width: 800px;
+        margin-bottom: 20px;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9f9f9;
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+      }
+
+      .image-container.empty {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        align-items: center;
+      }
+
+      .controls input[type="file"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      .controls label {
+        font-weight: bold;
+      }
+
+      .controls select {
+        padding: 8px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      .calendar-container {
+        background-color: white;
+        max-width: 800px;
+      }
+
+      .calendar-header {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1px;
+        background-color: #e0e0e0;
+        border: 1px solid #e0e0e0;
+      }
+
+      .calendar-day-header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .calendar-day-header.sunday {
+        background-color: #e74c3c;
+      }
+
+      .calendar-day-header.saturday {
+        background-color: #3498db;
+      }
+
+      .calendar-day {
+        background-color: white;
+        padding: 15px;
+        min-height: 80px;
+        position: relative;
+      }
+
+      .calendar-day.empty {
+        background-color: #fafafa;
+      }
+
+      .calendar-day.today {
+        background-color: #fff9c4;
+      }
+
+      .calendar-day .date {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .calendar-day.sunday .date {
+        color: #e74c3c;
+      }
+
+      .calendar-day.saturday .date {
+        color: #3498db;
+      }
+
+      .page-container {
+        margin: 0 auto;
+        background: #fff;
+        width: 210mm;
+        height: 297mm;
+        max-width: 100vw;
+        max-height: calc(100vw * 1.414);
+        aspect-ratio: 210/297;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      @media (max-width: 700px) {
+        .page-container {
+          width: 100vw;
+          height: calc(100vw * 1.414);
+        }
+      }
+
+      .image-container {
+        flex: 1 1 50%;
+        min-height: 0;
+      }
+
+      .calendar-container {
+        flex: 1 1 50%;
+        min-height: 0;
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        body {
+          padding: 0;
+          background-color: white;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .image-container {
+          height: 50vh;
+          flex-shrink: 0;
+          margin: 0;
+          border: none;
+          border-radius: 0;
+          background-color: white;
+        }
+
+        .image-container img {
+          max-height: 50vh;
+          width: auto;
+        }
+
+        .image-container.empty {
+          display: none;
+        }
+
+        .controls {
+          display: none;
+        }
+
+        .calendar-container {
+          box-shadow: none;
+          padding-inline: 12mm;
+          max-width: none;
+          width: 100%;
+          height: 50vh;
+          flex-shrink: 0;
+          margin-top: 0;
+          page-break-before: avoid;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .calendar-header {
+          font-size: 20px;
+          margin-bottom: 10px;
+          flex-shrink: 0;
+        }
+
+        .calendar {
+          border: 1px solid #333;
+          flex: 1;
+          grid-template-rows: auto;
+          grid-auto-rows: 1fr;
+        }
+
+        .calendar-day-header {
+          background-color: #f0f0f0 !important;
+          color: #333 !important;
+          border: 1px solid #333;
+          padding: 4px;
+        }
+
+        .calendar-day {
+          border: 1px solid #333;
+          padding: 4px;
+          background-color: white !important;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        .calendar-day.empty {
+          background-color: white !important;
+        }
+
+        .calendar-day.today {
+          background-color: white !important;
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <label for="image-upload">画像:</label>
+      <input type="file" id="image-upload" accept="image/*">
+      <label for="year-select">年:</label>
+      <select id="year-select"></select>
+      <label for="month-select">月:</label>
+      <select id="month-select"></select>
+    </div>
+    <div class="page-container">
+      <div class="image-container empty" id="image-container">
+        画像を選択してください
+      </div>
+      <div class="calendar-container">
+        <div class="calendar-header" id="calendar-header"></div>
+        <div class="calendar" id="calendar"></div>
+      </div>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
