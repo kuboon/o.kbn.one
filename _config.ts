@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import date from "lume/plugins/date.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 import extractDate from "lume/plugins/extract_date.ts";
+import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 // import filter_pages from "lume/plugins/filter_pages.ts";
 import inline from "lume/plugins/inline.ts";
@@ -16,7 +17,6 @@ import prism from "lume/plugins/prism.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import source_maps from "lume/plugins/source_maps.ts";
 import transformImages from "lume/plugins/transform_images.ts";
-import vento from "lume/plugins/vento.ts";
 
 import markdownItAnchor from "npm:markdown-it-anchor";
 
@@ -40,6 +40,7 @@ const site = lume({
 
 site.use(date());
 site.use(esbuild());
+site.use(favicon());
 // site.use(filter_pages({}));
 site.use(postcss());
 site.use(source_maps());
