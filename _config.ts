@@ -62,6 +62,6 @@ site.use(prism());
 site.use(sitemap({
   query: "noindex!=true",
 }));
-site.add([".css", ".ts", ".svg", ".jpeg", ".png"]);
+site.add([".css", ".ts", ".tsx", ".svg", ".jpeg", ".png"]);
 
 export default site;
