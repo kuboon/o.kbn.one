@@ -181,7 +181,13 @@ export function App(handle: Handle) {
                       cy={y.toString()}
                       rx="19"
                       ry="14"
-                      fill={digit.lower === val ? "#3b82f6" : "white"}
+                      fill={
+                        digit.lower === val
+                          ? "#3b82f6"
+                          : digit.lower > val
+                          ? "#93c5fd"
+                          : "white"
+                      }
                       stroke="#1e3a8a"
                       strokeWidth="3"
                     />
