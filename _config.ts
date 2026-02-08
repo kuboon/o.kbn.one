@@ -64,5 +64,6 @@ site.use(sitemap({
   query: "noindex!=true",
 }));
 site.add([".css", ".ts", ".tsx", ".svg", ".jpeg", ".png"]);
+site.copy("solomp/app.webmanifest");
 
 export default site;

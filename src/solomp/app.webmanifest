@@ -1,0 +1,20 @@
+{
+  "name": "そろんぷ",
+  "short_name": "そろんぷ",
+  "theme_color": "#10213D",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/solomp/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
