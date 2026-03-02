@@ -60,19 +60,14 @@ layout: false
       }
 
       .image-container {
+        display: flex;
+        justify-content: center;
         height: 50%;
         flex-shrink: 0;
         img {
-          margin: auto;
-          max-height: 100%;
-          width: auto;
+          max-height: 400px;
+          object-fit: contain;
         }
-      }
-
-      .image-container img {
-        max-width: 100%;
-        max-height: 400px;
-        object-fit: contain;
       }
 
       .image-container.empty {

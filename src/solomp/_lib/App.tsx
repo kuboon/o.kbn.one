@@ -126,7 +126,7 @@ export function App(handle: Handle) {
               <g
                 css={{ cursor: "pointer" }}
                 on={{
-                  pointerdown: () =>
+                  pointerup: () =>
                     dispatch({ type: "TOGGLE_UPPER", index: i }),
                 }}
               >
@@ -161,7 +161,7 @@ export function App(handle: Handle) {
                     key={val}
                     css={{ cursor: "pointer" }}
                     on={{
-                      pointerdown: () =>
+                      pointerup: () =>
                         dispatch({
                           type: "SET_LOWER",
                           index: i,

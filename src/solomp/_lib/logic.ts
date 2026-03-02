@@ -64,7 +64,7 @@ export function update(model: Model, msg: Msg): Model {
     case "SET_LOWER": {
       const newDigits = model.digits.map((d, i) =>
         i === msg.index
-          ? { ...d, lower: d.lower === msg.value ? 0 : msg.value }
+          ? { ...d, lower: d.lower < msg.value ? msg.value : (msg.value - 1) as LowerDigit }
           : d
       );
       const currentVal = calculateCurrentValue(newDigits);
